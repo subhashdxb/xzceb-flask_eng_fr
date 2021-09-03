@@ -7,9 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-apikey = os.environ['apikey']
-url = os.environ['url']
-
 authenticator = IAMAuthenticator('rNNe1tsh3f7x8WRZeJw0aUh0mnpXAkO3jptTu4QSnOAH')
 language_translator = LanguageTranslatorV3(
     version='2018-05-01',
