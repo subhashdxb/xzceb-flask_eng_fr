@@ -1,6 +1,5 @@
 """Required Modules for this program"""
 import os
-import json
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from dotenv import load_dotenv
@@ -18,16 +17,17 @@ language_translator.set_service_url('https://api.eu-gb.language-translator.watso
 def englishToFrench(englishText):
     """Translates English to French"""
     model_id='en-fr'
-    frenchText = language_translator.translate(
+    fr_text = language_translator.translate(
     text=englishText,
     model_id=model_id).get_result()
-    return frenchText
+    return(fr_text['translations'][0]['translation'])
+    
 
 def frenchToEnglish(frenchText):
     """Translates French to English"""
     model_id='fr-en'
-    englishText = language_translator.translate(
+    en_text = language_translator.translate(
     text=frenchText,
     model_id=model_id).get_result()
-    return englishText
-
+    return(en_text['translations'][0]['translation'])
+    
